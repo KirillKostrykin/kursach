@@ -12,9 +12,9 @@ int main()
 	int menu = 0;
 	int vibor1 = 0, vibor2 = 0, pokritie = 0;
 	start:
-	printf("Здравствуйте!\n");
-	printf("Выбирайте услугу: \n");
-	printf("1 - Ввод площади.\n2 - Выбор покрытия.\n3 - Подсчет суммы к оплате\n4 - Выход\n");
+	printf("Hello!\n");
+	printf("Select the service: \n");
+	printf("1 - Calculate the area.\n2 - Choose cover.\n3 - Calculate price\n4 - Exit\n");
 	
 	
 
@@ -23,107 +23,107 @@ int main()
 	
 	switch (menu){
 	case 1:
-		printf("Вы выбрали ввод площади.\nКакой формы помещение?\n1 - прямоугольная. 2 - треугольная. 3 - круглая.\n 4 - вернуться\n");
+		printf("You choose area calculating.\nWhat form the room?\n1 - rectangle. 2 - triangle. 3 - circle.\n 4 - Back\n");
 		vibor1:
 		scanf_s("%d", &vibor1);
 		switch (vibor1){
 		case 1:
-			printf("Вы выбрали прямоугольник.\nВведите длину первой стороны: ");
+			printf("You choose rectangle.\nEnter the first side length: ");
 			scanf_s("%f", &a);
-			printf("\nВведите длину второй стороны: ");
+			printf("\nEnter the second side lentght: ");
 			scanf_s("%f", &b);
 			square = a * b;
-			printf("Площадь равна %f", square);
+			printf("Square is: %f", square);
 			system("pause");
 			goto start;
 			break;
 		case 2:
-			printf("Вы выбрали треугольник.\n");
-			printf("Введите первую сторону:\n");
+			printf("You choose triangle.\n");
+			printf("Enter the first side length:\n");
 			scanf_s("%f", &a);
-			printf("Введите вторую сторону:\n");
+			printf("Enter the second side length:\n");
 			scanf_s("%f", &b);
-			printf("Введите третью сторону:\n");
+			printf("Enter the third side length:\n");
 			scanf_s("%f", &c);
-			if ((a + b)>c && (a + c)>b && (b + c)>a) // проверка на существование треугольника с введенными сторонами
+			if ((a + b)>c && (a + c)>b && (b + c)>a) // check for the existence of a triangle with entered sides
 			{
 				d = (a + b + c) / 2;  square = sqrt(d*(d - a)*(d - b)*(d - c)); 
 			}
 			else
 			{
-				printf("Такой комнаты не существует!\n");
+				printf("That room can not exist!\n");
 			}
-				printf("Площадь равна: %f\n", square);
+				printf("Square is: %f\n", square);
 			
 				system("pause");
 			goto start;
 			break;
 		case 3:
-			printf("Вы выбрали круг.\nВведите радиус:");
+			printf("You choose circle.\nEnter radius:");
 			scanf_s("%f", &a);
 			square = a * a * pi;
-			printf("Площадь равна: %f\n", square);
+			printf("Square is: %f\n", square);
 
 			system("pause");
 			goto start;
 			break;
 		case 4:
-			printf("Возврат в меню\n");
+			printf("Back to menu\n");
 			goto start;
 			break;
 		default:
-			printf("Некорректный ввод. Попробуйте еще раз.\n");
+			printf("Incorrect input. Try again.\n");
 			goto vibor1;
 			break;
 		}
 	case 2:
 		choose2:
-		printf("1 - Плитка - 5 шейкелей за метр.\n2 - Ламинат - 8 шейкелей за метр.\n3 - Линолеум - 3 шейкеля за метр.\n4 - Досчатый пол - 1 шейкель за метр.\n5 - Вернуться в меню.\n");
+		printf("1 - Tile - 5 shekels per square meter.\n2 - Laminate - 8 shekels per square meter.\n3 - Linoleum - 3 shekels per square meter.\n4 - Wooden floor - 1 shekel per square meter.\n5 - Back to menu.\n");
 		scanf_s("%d", &vibor2);
 		switch (vibor2){
 		case 1:
-			printf("Вы выбрали плитку.\n");
+			printf("You choose tile.\n");
 			pokritie = 5;
-			printf("Возврат в меню.");
+			printf("Return to menu.\n");
 			goto start;
 			break;
 		case 2:
-			printf("Вы выбрали ламинат.\n");
+			printf("You choose laminate.\n");
 			pokritie = 8;
-			printf("Возврат в меню.\n");
+			printf("Return to menu.\n");
 			goto start;
 			break;
 		case 3:
-			printf("Вы выбрали линолеум.\n");
+			printf("You choose linoleum.\n");
 			pokritie = 3;
-			printf("Возврат в меню.\n");
+			printf("Return to menu.\n");
 			goto start;
 			break;
 		case 4:
-			printf("Вы выбрали доски.\n");
+			printf("You choose wooden planks.\n");
 			pokritie = 1;
-			printf("Возврат в меню.\n");
+			printf("Return to menu.\n");
 			goto start;
 			break;
 		case 5:
-			printf("Возврат в меню.\n");
+			printf("Return to menu.\n");
 			goto start;
 			break;
 		default:
-			printf("Некорректный ввод. Попробуйте еще раз.\n");
+			printf("Incorrect input. Try again.\n");
 			goto choose2;
 			break;
 		}
 	case 3:
-		printf("Подсчет шейкелей.\n");
+		printf("Calculating of the total amount.\n");
 		
 		if (pokritie != 0 && square != 0){
 			babki = square * pokritie;
-			printf("Общая сумма равна %f шейкель(-ей).\n", babki);
+			printf("Total amount is %f shekel(-s).\n", babki);
 			goto start;
 		}
 		else{
-			printf("Ошибка. Не посчитана площадь или не выбранон покрытие.\n");
+			printf("Error. Тot designed or selected area coverage.\n");
 			goto start;
 		}
 		break;
